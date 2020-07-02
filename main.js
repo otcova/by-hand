@@ -27,7 +27,10 @@ function draw() {
     }
     translate(0, height / 2);
     randomSeed(parseInt(frameCount / 2));
-
+    
+    hand.straightMin = 15*mX/width;
+    hand.straightMax = 15*mX/width + 3;
+    
     if (planellIndex === 0) {
         fill(30, 40, 200);
         handRect(150, -50, width - 300, 100);
@@ -69,9 +72,6 @@ function handRect(tx, ty, w, h) {
     handLine(tx, ty, tx + w, ty);
     handLine(tx + w, ty, tx + w, ty + h);
     handLine(tx, ty + h, tx + w, ty + h);
-
-    hand.straightMin = mX / 70;
-    hand.straightMax = mX / 70 + 3;
 
     if (_renderer._doFill) {
         let strokeColor = color(_renderer._cachedStrokeStyle);
